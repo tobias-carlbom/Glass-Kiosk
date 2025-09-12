@@ -21,7 +21,8 @@ Access settings through the application menu or status bar.
 
 ## Download
 
-link here
+[https://github.com/tobias-carlbom/Glass-Kiosk/releases/tag/1.0
+](https://github.com/tobias-carlbom/Glass-Kiosk/releases/download/1.0/GlassKiosk.zip)
 
 ## To-Do
 
