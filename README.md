@@ -16,6 +16,7 @@ Access settings through the application menu or status bar.
 ## Requirements
 
 - Windows 10/11
+- .NET8 (https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
 - Microsoft Edge WebView2 Runtime (https://go.microsoft.com/fwlink/?linkid=2124701)
 
 ## Download
