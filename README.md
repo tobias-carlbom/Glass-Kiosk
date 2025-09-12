@@ -15,7 +15,7 @@ Access settings through the application menu or status bar.
 
 ## Requirements
 
-- Windows 10/11
+- Windows 10/11, Windows Server 2019/2022
 - .NET8 (https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
 - Microsoft Edge WebView2 Runtime (https://go.microsoft.com/fwlink/?linkid=2124701)
 
@@ -26,10 +26,10 @@ Access settings through the application menu or status bar.
 
 ## To-Do
 
-* Cross platform support - Windows, MacOS, Linux, Android, IOS
 * ~~Password protect config file~~
 * ~~Password protect the desktop application~~
 * Option to disable internet
 * Option to disable browser downloads
 * Add splash screen
 * Support for multiple monitors
+* Support for multiple URL's (slideshow)
