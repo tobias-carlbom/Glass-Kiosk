@@ -13,13 +13,14 @@ A lightweight Windows desktop application that provides a dedicated browser expe
 
 Access settings through the application menu or status bar.
 
-![ScreenRecording2025-09-07at12 21 22-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/b7c6ad07-f76e-45de-99aa-db6b38fe372a)
-
 ## Requirements
 
 - Windows 10/11
-- .NET8
 - Microsoft Edge WebView2 Runtime (https://go.microsoft.com/fwlink/?linkid=2124701)
+
+## Download
+
+link here
 
 ## To-Do
 
