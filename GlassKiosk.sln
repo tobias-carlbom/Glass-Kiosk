@@ -5,8 +5,6 @@ VisualStudioVersion = 17.14.36429.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlassKiosk", "GlassKiosk\GlassKiosk.csproj", "{BA14B5F4-29BD-4ADB-A37A-76010DEE770C}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "GlassKioskSetup", "GlassKioskSetup\GlassKioskSetup.vdproj", "{7A9B6B90-C0B4-AD83-7D59-7662F4906181}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,8 +15,6 @@ Global
 		{BA14B5F4-29BD-4ADB-A37A-76010DEE770C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA14B5F4-29BD-4ADB-A37A-76010DEE770C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA14B5F4-29BD-4ADB-A37A-76010DEE770C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7A9B6B90-C0B4-AD83-7D59-7662F4906181}.Debug|Any CPU.ActiveCfg = Debug
-		{7A9B6B90-C0B4-AD83-7D59-7662F4906181}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
