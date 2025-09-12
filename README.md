@@ -16,7 +16,7 @@ Access settings through the application menu or status bar.
 ## Requirements
 
 - Windows 10/11, Windows Server 2019/2022
-- .NET8 (https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
+- .NET8 ([https://dotnet.microsoft.com/en-us/download/dotnet/8.0](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-8.0.20-windows-x64-installer))
 - Microsoft Edge WebView2 Runtime (https://go.microsoft.com/fwlink/?linkid=2124701)
 
 ## Download
@@ -33,3 +33,4 @@ Access settings through the application menu or status bar.
 * Add splash screen
 * Support for multiple monitors
 * Support for multiple URL's (slideshow)
+* Windows installer package (setup file)
