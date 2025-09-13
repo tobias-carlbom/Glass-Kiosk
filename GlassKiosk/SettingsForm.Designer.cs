@@ -31,11 +31,11 @@
             groupBox1 = new GroupBox();
             textBoxURL = new TextBox();
             groupBox2 = new GroupBox();
-            checkBoxHideStatusBar = new CheckBox();
-            checkBoxHideToolbar = new CheckBox();
+            checkBoxStatusBar = new CheckBox();
+            checkBoxToolbar = new CheckBox();
             checkBoxAutoStart = new CheckBox();
-            checkBoxStartMaximized = new CheckBox();
-            checkBoxHideTitleBar = new CheckBox();
+            checkBoxMaximized = new CheckBox();
+            checkBoxTitleBar = new CheckBox();
             groupBox3 = new GroupBox();
             textBoxPassword = new TextBox();
             buttonCancel = new Button();
@@ -64,11 +64,11 @@
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(checkBoxHideStatusBar);
-            groupBox2.Controls.Add(checkBoxHideToolbar);
+            groupBox2.Controls.Add(checkBoxStatusBar);
+            groupBox2.Controls.Add(checkBoxToolbar);
             groupBox2.Controls.Add(checkBoxAutoStart);
-            groupBox2.Controls.Add(checkBoxStartMaximized);
-            groupBox2.Controls.Add(checkBoxHideTitleBar);
+            groupBox2.Controls.Add(checkBoxMaximized);
+            groupBox2.Controls.Add(checkBoxTitleBar);
             groupBox2.Location = new Point(12, 118);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(608, 272);
@@ -76,25 +76,25 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Basic Settings";
             // 
-            // checkBoxHideStatusBar
+            // checkBoxStatusBar
             // 
-            checkBoxHideStatusBar.AutoSize = true;
-            checkBoxHideStatusBar.Location = new Point(6, 164);
-            checkBoxHideStatusBar.Name = "checkBoxHideStatusBar";
-            checkBoxHideStatusBar.Size = new Size(208, 36);
-            checkBoxHideStatusBar.TabIndex = 6;
-            checkBoxHideStatusBar.Text = "Hide Status Bar";
-            checkBoxHideStatusBar.UseVisualStyleBackColor = true;
+            checkBoxStatusBar.AutoSize = true;
+            checkBoxStatusBar.Location = new Point(6, 164);
+            checkBoxStatusBar.Name = "checkBoxStatusBar";
+            checkBoxStatusBar.Size = new Size(216, 36);
+            checkBoxStatusBar.TabIndex = 6;
+            checkBoxStatusBar.Text = "Show Status Bar";
+            checkBoxStatusBar.UseVisualStyleBackColor = true;
             // 
-            // checkBoxHideToolbar
+            // checkBoxToolbar
             // 
-            checkBoxHideToolbar.AutoSize = true;
-            checkBoxHideToolbar.Location = new Point(6, 80);
-            checkBoxHideToolbar.Name = "checkBoxHideToolbar";
-            checkBoxHideToolbar.Size = new Size(182, 36);
-            checkBoxHideToolbar.TabIndex = 3;
-            checkBoxHideToolbar.Text = "Hide Toolbar";
-            checkBoxHideToolbar.UseVisualStyleBackColor = true;
+            checkBoxToolbar.AutoSize = true;
+            checkBoxToolbar.Location = new Point(6, 80);
+            checkBoxToolbar.Name = "checkBoxToolbar";
+            checkBoxToolbar.Size = new Size(190, 36);
+            checkBoxToolbar.TabIndex = 3;
+            checkBoxToolbar.Text = "Show Toolbar";
+            checkBoxToolbar.UseVisualStyleBackColor = true;
             // 
             // checkBoxAutoStart
             // 
@@ -106,25 +106,25 @@
             checkBoxAutoStart.Text = "Auto Start";
             checkBoxAutoStart.UseVisualStyleBackColor = true;
             // 
-            // checkBoxStartMaximized
+            // checkBoxMaximized
             // 
-            checkBoxStartMaximized.AutoSize = true;
-            checkBoxStartMaximized.Location = new Point(6, 38);
-            checkBoxStartMaximized.Name = "checkBoxStartMaximized";
-            checkBoxStartMaximized.Size = new Size(217, 36);
-            checkBoxStartMaximized.TabIndex = 0;
-            checkBoxStartMaximized.Text = "Start Maximized";
-            checkBoxStartMaximized.UseVisualStyleBackColor = true;
+            checkBoxMaximized.AutoSize = true;
+            checkBoxMaximized.Location = new Point(6, 38);
+            checkBoxMaximized.Name = "checkBoxMaximized";
+            checkBoxMaximized.Size = new Size(256, 36);
+            checkBoxMaximized.TabIndex = 0;
+            checkBoxMaximized.Text = "Window Maximized";
+            checkBoxMaximized.UseVisualStyleBackColor = true;
             // 
-            // checkBoxHideTitleBar
+            // checkBoxTitleBar
             // 
-            checkBoxHideTitleBar.AutoSize = true;
-            checkBoxHideTitleBar.Location = new Point(6, 122);
-            checkBoxHideTitleBar.Name = "checkBoxHideTitleBar";
-            checkBoxHideTitleBar.Size = new Size(190, 36);
-            checkBoxHideTitleBar.TabIndex = 4;
-            checkBoxHideTitleBar.Text = "Hide Title Bar";
-            checkBoxHideTitleBar.UseVisualStyleBackColor = true;
+            checkBoxTitleBar.AutoSize = true;
+            checkBoxTitleBar.Location = new Point(6, 122);
+            checkBoxTitleBar.Name = "checkBoxTitleBar";
+            checkBoxTitleBar.Size = new Size(198, 36);
+            checkBoxTitleBar.TabIndex = 4;
+            checkBoxTitleBar.Text = "Show Title Bar";
+            checkBoxTitleBar.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
@@ -192,13 +192,13 @@
         private TextBox textBoxURL;
         private GroupBox groupBox2;
         private CheckBox checkBoxAutoStart;
-        private CheckBox checkBoxHideTitleBar;
+        private CheckBox checkBoxTitleBar;
         private GroupBox groupBox3;
         private TextBox textBoxPassword;
-        private CheckBox checkBoxStartMaximized;
-        private CheckBox checkBoxHideToolbar;
+        private CheckBox checkBoxMaximized;
+        private CheckBox checkBoxToolbar;
         private Button buttonCancel;
         private Button buttonApply;
-        private CheckBox checkBoxHideStatusBar;
+        private CheckBox checkBoxStatusBar;
     }
 }

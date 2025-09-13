@@ -1,14 +1,15 @@
-using Microsoft.Win32;
 using System.Configuration;
+using System.Diagnostics;
 using System.Text;
+using Microsoft.Win32;
 
 namespace GlassKiosk
 {
     public partial class MainForm : Form
     {
 
-        private string currentUrl;
-        private string adminPassword;
+        private string currentUrl = "http://localhost:1881";
+        private string adminPassword = "";
         private const string REGISTRY_KEY = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Run";
         private const string APP_NAME = "GlassKiosk";
 
@@ -40,7 +41,7 @@ namespace GlassKiosk
             EditApplicationSettings();
         }
 
-        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void MainForm_FormClosing(object? sender, FormClosingEventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(adminPassword))
             {
@@ -57,82 +58,101 @@ namespace GlassKiosk
 
 
 
-
+        /*
+         * Helper Methods
+         */
         private void LoadConfiguration()
         {
-            currentUrl = ConfigurationManager.AppSettings["URL"] ?? "http://localhost:1881";
+            currentUrl = ConfigurationManager.AppSettings["url"] ?? "http://localhost:1881";
+            //webView21.CoreWebView2.Navigate(currentUrl);
 
-            string encryptedPassword = ConfigurationManager.AppSettings["AdminPassword"] ?? "";
+            string encryptedPassword = ConfigurationManager.AppSettings["adminPassword"] ?? "";
             adminPassword = string.IsNullOrEmpty(encryptedPassword) ? "" : DecryptString(encryptedPassword);
 
-            bool startMaximized = bool.Parse(ConfigurationManager.AppSettings["StartMaximized"] ?? "false");
-            if (startMaximized)
+            bool maximized = bool.Parse(ConfigurationManager.AppSettings["maximized"] ?? "false");
+            if (maximized)
             {
                 this.WindowState = FormWindowState.Maximized;
             }
+            else
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
 
-            bool hideToolbar = bool.Parse(ConfigurationManager.AppSettings["HideToolbar"] ?? "false");
-            if (hideToolbar)
+            bool toolbar = bool.Parse(ConfigurationManager.AppSettings["toolbar"] ?? "true");
+            if (toolbar)
+            {
+                menuStrip1.Visible = true;
+            }
+            else
             {
                 menuStrip1.Visible = false;
             }
 
-            bool hideTitleBar = bool.Parse(ConfigurationManager.AppSettings["HideTitleBar"] ?? "false");
-            if (hideTitleBar)
+            bool titleBar = bool.Parse(ConfigurationManager.AppSettings["titleBar"] ?? "true");
+            if (titleBar)
+            {
+                this.FormBorderStyle = FormBorderStyle.Sizable;
+            }
+            else
             {
                 this.FormBorderStyle = FormBorderStyle.None;
             }
 
-            bool hideStatusBar = bool.Parse(ConfigurationManager.AppSettings["HideStatusBar"] ?? "false");
-            if (hideStatusBar)
+            bool statusBar = bool.Parse(ConfigurationManager.AppSettings["statusBar"] ?? "true");
+            if (statusBar)
+            {
+                statusStrip1.Visible = true;
+            }
+            else
             {
                 statusStrip1.Visible = false;
             }
 
-            bool autostart = bool.Parse(ConfigurationManager.AppSettings["Autostart"] ?? "false");
+            bool autostart = bool.Parse(ConfigurationManager.AppSettings["autostart"] ?? "false");
         }
 
-        private void SaveConfiguration(string url, bool startMaximized, bool hideToolbar, bool hideTitleBar, bool hideStatusBar, bool autostart, string adminPassword)
+        private void SaveConfiguration(string url, bool maximized, bool toolbar, bool titleBar, bool statusBar, bool autostart, string adminPassword)
         {
             try
             {
                 Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
 
-                if (config.AppSettings.Settings["URL"] == null)
-                    config.AppSettings.Settings.Add("URL", url);
+                if (config.AppSettings.Settings["url"] == null)
+                    config.AppSettings.Settings.Add("url", url);
                 else
-                    config.AppSettings.Settings["URL"].Value = url;
+                    config.AppSettings.Settings["url"].Value = url;
 
-                if (config.AppSettings.Settings["StartMaximized"] == null)
-                    config.AppSettings.Settings.Add("StartMaximized", startMaximized.ToString());
+                if (config.AppSettings.Settings["maximized"] == null)
+                    config.AppSettings.Settings.Add("maximized", maximized.ToString());
                 else
-                    config.AppSettings.Settings["StartMaximized"].Value = startMaximized.ToString();
+                    config.AppSettings.Settings["maximized"].Value = maximized.ToString();
 
-                if (config.AppSettings.Settings["HideToolbar"] == null)
-                    config.AppSettings.Settings.Add("HideToolbar", hideToolbar.ToString());
+                if (config.AppSettings.Settings["toolbar"] == null)
+                    config.AppSettings.Settings.Add("toolbar", toolbar.ToString());
                 else
-                    config.AppSettings.Settings["HideToolbar"].Value = hideToolbar.ToString();
+                    config.AppSettings.Settings["toolbar"].Value = toolbar.ToString();
 
-                if (config.AppSettings.Settings["HideTitleBar"] == null)
-                    config.AppSettings.Settings.Add("HideTitleBar", hideTitleBar.ToString());
+                if (config.AppSettings.Settings["titleBar"] == null)
+                    config.AppSettings.Settings.Add("titleBar", titleBar.ToString());
                 else
-                    config.AppSettings.Settings["HideTitleBar"].Value = hideTitleBar.ToString();
+                    config.AppSettings.Settings["titleBar"].Value = titleBar.ToString();
 
-                if (config.AppSettings.Settings["HideStatusBar"] == null)
-                    config.AppSettings.Settings.Add("HideStatusBar", hideStatusBar.ToString());
+                if (config.AppSettings.Settings["statusBar"] == null)
+                    config.AppSettings.Settings.Add("statusBar", statusBar.ToString());
                 else
-                    config.AppSettings.Settings["HideStatusBar"].Value = hideStatusBar.ToString();
+                    config.AppSettings.Settings["statusBar"].Value = statusBar.ToString();
 
-                if (config.AppSettings.Settings["Autostart"] == null)
-                    config.AppSettings.Settings.Add("Autostart", autostart.ToString());
+                if (config.AppSettings.Settings["autostart"] == null)
+                    config.AppSettings.Settings.Add("autostart", autostart.ToString());
                 else
-                    config.AppSettings.Settings["Autostart"].Value = autostart.ToString();
+                    config.AppSettings.Settings["autostart"].Value = autostart.ToString();
 
                 string encryptedPassword = string.IsNullOrEmpty(adminPassword) ? "" : EncryptString(adminPassword);
-                if (config.AppSettings.Settings["AdminPassword"] == null)
-                    config.AppSettings.Settings.Add("AdminPassword", encryptedPassword);
+                if (config.AppSettings.Settings["adminPassword"] == null)
+                    config.AppSettings.Settings.Add("adminPassword", encryptedPassword);
                 else
-                    config.AppSettings.Settings["AdminPassword"].Value = encryptedPassword;
+                    config.AppSettings.Settings["adminPassword"].Value = encryptedPassword;
 
                 config.Save(ConfigurationSaveMode.Modified);
                 ConfigurationManager.RefreshSection("appSettings");
@@ -181,36 +201,70 @@ namespace GlassKiosk
 
             using (SettingsForm configForm = new SettingsForm())
             {
-                configForm.WebsiteUrl = currentUrl;
-                configForm.StartMaximized = bool.Parse(ConfigurationManager.AppSettings["StartMaximized"] ?? "false");
-                configForm.HideToolbar = bool.Parse(ConfigurationManager.AppSettings["HideToolbar"] ?? "false");
-                configForm.HideTitleBar = bool.Parse(ConfigurationManager.AppSettings["HideTitleBar"] ?? "false");
-                configForm.Autostart = bool.Parse(ConfigurationManager.AppSettings["Autostart"] ?? "false");
-                configForm.AdminPassword = adminPassword;
+                configForm.websiteUrl = currentUrl;
+                configForm.maximized = bool.Parse(ConfigurationManager.AppSettings["maximized"] ?? "false");
+                configForm.toolbar = bool.Parse(ConfigurationManager.AppSettings["toolbar"] ?? "false");
+                configForm.titleBar = bool.Parse(ConfigurationManager.AppSettings["titleBar"] ?? "false");
+                configForm.statusBar = bool.Parse(ConfigurationManager.AppSettings["statusBar"] ?? "false");
+                configForm.autostart = bool.Parse(ConfigurationManager.AppSettings["Autostart"] ?? "false");
+                configForm.adminPassword = adminPassword;
 
                 if (configForm.ShowDialog() == DialogResult.OK)
                 {
-                    string newUrl = configForm.WebsiteUrl;
-                    bool startMaximized = configForm.StartMaximized;
-                    bool hideToolbar = configForm.HideToolbar;
-                    bool hideTitleBar = configForm.HideTitleBar;
-                    bool hideStatusBar = configForm.HideStatusBar;
-                    bool autostart = configForm.Autostart;
-                    string newAdminPassword = configForm.AdminPassword;
+                    string newUrl = configForm.websiteUrl;
+                    bool maximized = configForm.maximized;
+                    bool toolbar = configForm.toolbar;
+                    bool titleBar = configForm.titleBar;
+                    bool statusBar = configForm.statusBar;
+                    bool autostart = configForm.autostart;
+                    string newAdminPassword = configForm.adminPassword;
 
                     adminPassword = newAdminPassword;
-                    SaveConfiguration(newUrl, startMaximized, hideToolbar, hideTitleBar, hideStatusBar, autostart, newAdminPassword);
+                    SaveConfiguration(newUrl, maximized, toolbar, titleBar, statusBar, autostart, newAdminPassword);
                     SetAutostart(autostart);
-                    LoadConfiguration();
+                    //LoadConfiguration();
+                    DialogResult result = MessageBox.Show(
+    "Settings have been saved. The application needs to restart to apply all changes.\n\nWould you like to restart now?",
+    "Restart Required",
+    MessageBoxButtons.YesNo,
+    MessageBoxIcon.Question);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        RestartApplication();
+                    }
                 }
             }
         }
-        
+
+        private void RestartApplication()
+        {
+            try
+            {
+                // Start a new instance of the application
+                string executablePath = Application.ExecutablePath;
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = executablePath,
+                    UseShellExecute = true
+                });
+
+                // Exit the current application
+                Environment.Exit(0);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Could not restart application: {ex.Message}\n\nPlease restart manually.",
+                    "Restart Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Environment.Exit(0);
+            }
+        }
+
         private void SetAutostart(bool enable)
         {
             try
             {
-                using (RegistryKey key = Registry.CurrentUser.OpenSubKey(REGISTRY_KEY, true))
+                using (RegistryKey? key = Registry.CurrentUser.OpenSubKey(REGISTRY_KEY, true))
                 {
                     if (enable)
                     {

@@ -19,43 +19,43 @@ namespace GlassKiosk
             InitializeComponent();
         }
 
-        public string WebsiteUrl
+        public string websiteUrl
         {
             get { return textBoxURL.Text; }
             set { textBoxURL.Text = value; }
         }
 
-        public bool StartMaximized
+        public bool maximized
         {
-            get { return checkBoxStartMaximized.Checked; }
-            set { checkBoxStartMaximized.Checked = value; }
+            get { return checkBoxMaximized.Checked; }
+            set { checkBoxMaximized.Checked = value; }
         }
 
-        public bool HideToolbar
+        public bool toolbar
         {
-            get { return checkBoxHideToolbar.Checked; }
-            set { checkBoxHideToolbar.Checked = value; }
+            get { return checkBoxToolbar.Checked; }
+            set { checkBoxToolbar.Checked = value; }
         }
 
-        public bool HideTitleBar
+        public bool titleBar
         {
-            get { return checkBoxHideTitleBar.Checked; }
-            set { checkBoxHideTitleBar.Checked = value; }
+            get { return checkBoxTitleBar.Checked; }
+            set { checkBoxTitleBar.Checked = value; }
         }
 
-        public bool HideStatusBar
+        public bool statusBar
         {
-            get { return checkBoxHideStatusBar.Checked; }
-            set { checkBoxHideStatusBar.Checked = value; }
+            get { return checkBoxStatusBar.Checked; }
+            set { checkBoxStatusBar.Checked = value; }
         }
 
-        public bool Autostart
+        public bool autostart
         {
             get { return checkBoxAutoStart.Checked; }
             set { checkBoxAutoStart.Checked = value; }
         }
 
-        public string AdminPassword
+        public string adminPassword
         {
             get { return textBoxPassword.Text; }
             set { textBoxPassword.Text = value; }
