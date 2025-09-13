@@ -1,6 +1,6 @@
 # Glass-Kiosk
 
-A lightweight Windows desktop application that provides a dedicated browser experience using Microsoft's WebView2 control.
+A lightweight .NET8 Windows desktop application that provides a dedicated browser experience using Microsoft's WebView2 control.
 
 ## Features
 
@@ -15,19 +15,22 @@ Access settings through the application menu or status bar.
 
 ## Requirements
 
-- Windows 10/11
+- Windows 10/11, Windows Server 2019/2022
+- .NET8 ([https://dotnet.microsoft.com/en-us/download/dotnet/8.0](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-8.0.20-windows-x64-installer))
 - Microsoft Edge WebView2 Runtime (https://go.microsoft.com/fwlink/?linkid=2124701)
 
 ## Download
 
-link here
+[https://github.com/tobias-carlbom/Glass-Kiosk/releases/tag/1.0
+](https://github.com/tobias-carlbom/Glass-Kiosk/releases/download/1.0/GlassKiosk.zip)
 
 ## To-Do
 
-* Cross platform support - Windows, MacOS, Linux, Android, IOS
 * ~~Password protect config file~~
 * ~~Password protect the desktop application~~
 * Option to disable internet
 * Option to disable browser downloads
 * Add splash screen
 * Support for multiple monitors
+* Support for multiple URL's (slideshow)
+* Windows installer package (setup file)
