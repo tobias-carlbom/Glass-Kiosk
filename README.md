@@ -1,6 +1,6 @@
 # Glass-Kiosk
 
-A lightweight Windows desktop application that provides a dedicated browser experience using Microsoft's WebView2 control.
+A lightweight .NET8 Windows desktop application that provides a dedicated browser experience using Microsoft's WebView2 control.
 
 ## Features
 
