@@ -2,6 +2,10 @@
 
 A lightweight Windows desktop application that provides a dedicated browser experience using Microsoft's WebView2 control.
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/9033d59f-bc27-4e2d-92dc-80fb4828bf4c" width="600" alt="Screen Recording">
+</p>
+
 ## Features
 
 - Website URL (http/https)
