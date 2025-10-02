@@ -6,8 +6,8 @@ A lightweight Windows desktop application that provides a dedicated browser expe
 
 - Website URL (http/https)
 - Start Maximized
-- Hide Toolbar
-- Hide Title Bar
+- Show/Hide Toolbar
+- Show/Hide Title Bar
 - Autostart (after login)
 - Password Protection
 
